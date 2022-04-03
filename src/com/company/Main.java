@@ -13,15 +13,25 @@ public class Main {
         for(int i =0; i < board.length; i++){
         board[i] = -1;
         }
-        printBoard(board);
         //Neue Spieler aus der Player class
         Player a = new Player(0);
         Player b = new Player(1);
+        Player[] players = new Player[2];
+        players[0] = a;
+        players[1] = b;
+
 
         //Eine Dauerschleife die solange ausgeführt wird bis ein Spieler gewonnen hat
         while(winner == -1) {
+            printBoard(board);
+            int turnField = players[turn].getTurn();
+            if(players[turn].validateTurn(board, turnField)){
+                board[turnField] = players[turn].number;
+                turn = (turn +1) % 2;
+            }
             winner = checkWinner(board);
         }
+        System.out.println("Herzlichen Glückwunsch Spieler " + winner + " Du hast gewonnen!");
     }
     //Das "static" steht für alles was drin steht gleich, also hier kann kein Konstruktor erzeugt werden
     public static int checkWinner(int[] board){

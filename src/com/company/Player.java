@@ -13,11 +13,19 @@ public class Player {
     }
 
     public int getTurn(){
+        System.out.println("Spieler " + number + " Bitte gib das Feld ein, auf welches du setzen möchtest.");
       int input = scanner.nextInt(); //scanner bekommt eine Ganzzahl zurück, welche in System gelesen wurde, dass wird dann zum input
       if(input < 9 && input >= 0){ //die Eingabe wird darauf geprüft ob diese auch einen zulässigen Wert hat, ansonsten wird sie nicht zurückgegeben
           return input;
       }
       System.out.println("Ungültige Eingabe. Bitte nur eine Zahl zwischen 0 - 9 eingeben! Bitte nochmal eingeben.");
       return getTurn();
+    }
+
+    public boolean validateTurn(int[] board, int turn){
+        if(board[turn] == -1){
+            return true;
+        }
+            return false;
     }
 }
