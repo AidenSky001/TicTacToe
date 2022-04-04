@@ -13,12 +13,21 @@ public class Main {
         for(int i =0; i < board.length; i++){
         board[i] = -1;
         }
+        System.out.println("Bitte Spielername eingeben.");
+        System.out.println("Spieler 1: ");
+        Scanner scanner = new Scanner(System.in);
+        String spielername1 = scanner.next();
+        System.out.println("Bitte Spielername eingeben.");
+        System.out.println("Spieler 2: ");
+        Scanner scanner2 = new Scanner(System.in);
+        String spielername2 = scanner.next();
         //Neue Spieler aus der Player class
         Player a = new Player(0);
         Player b = new Player(1);
         Player[] players = new Player[2];
         players[0] = a;
         players[1] = b;
+        System.out.println("Ok " + spielername1 + " Du, bist am Zug.");
 
 
         //Eine Dauerschleife die solange ausgeführt wird bis ein Spieler gewonnen hat
